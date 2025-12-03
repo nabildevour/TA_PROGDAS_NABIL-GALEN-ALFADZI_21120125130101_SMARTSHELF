@@ -1,1 +1,29 @@
-[]
+[
+    {
+        "judul": "Test",
+        "gambar": "http:\/\/books.google.com\/books\/content?id=fFCjDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        "catatan": "Bagus",
+        "penulis": "James Clear",
+        "status": "ongoing",
+        "rating": "5",
+        "pdf": ""
+    },
+    {
+        "judul": "Dilan",
+        "gambar": "http:\/\/books.google.com\/books\/content?id=U_-BBAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        "catatan": "",
+        "penulis": "Pidi baiq",
+        "status": "belum",
+        "rating": "1",
+        "pdf": ""
+    },
+    {
+        "judul": "tes",
+        "gambar": "https:\/\/via.placeholder.com\/150?text=No+Cover",
+        "catatan": "",
+        "penulis": "ok",
+        "status": "belum",
+        "rating": "1",
+        "pdf": null
+    }
+]

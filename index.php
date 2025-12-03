@@ -32,14 +32,29 @@ $filterStatus = isset($_GET['filter']) ? $_GET['filter'] : 'all';
         .btn-edit { background: #f1c40f; color: #333; flex: 1; text-align: center; }
         .btn-del { background: #e74c3c; flex: 1; text-align: center; }
         .btn-dl { background: #34495e; display: block; text-align: center; margin-top: 5px; }
+        
+        /* Style Tambahan untuk Catatan */
+        .catatan-box {
+            background: #fff8e1;
+            border: 1px dashed #f39c12;
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #555;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
 
     <!-- NAVBAR -->
     <div class="navbar">
-        <h2 style="margin:0; color:#4a90e2;">📚 SmartShelf</h2>
-        <a href="tambah.php" class="btn btn-add">+ Tambah Buku</a>
+        <h2 style="margin:0; color:#4a90e2;">📚 Pustaka JSON</h2>
+        <div>
+            <!-- Karena tidak pakai logout button di req sebelumnya, cuma tombol tambah saja -->
+            <a href="tambah.php" class="btn btn-add">+ Tambah Buku</a>
+        </div>
     </div>
 
     <!-- FILTER -->
@@ -73,6 +88,14 @@ $filterStatus = isset($_GET['filter']) ? $_GET['filter'] : 'all';
                         <?= str_repeat("★", $buku->rating) . str_repeat("☆", 5 - $buku->rating) ?>
                     </div>
                     
+                    <!-- BAGIAN BARU: MENAMPILKAN CATATAN -->
+                    <?php if (!empty($buku->catatan)): ?>
+                        <div class="catatan-box">
+                            "<?= nl2br(htmlspecialchars($buku->catatan)) ?>"
+                        </div>
+                    <?php endif; ?>
+                    <!-- END BAGIAN CATATAN -->
+
                     <?php if($buku->pdf && file_exists($buku->pdf)): ?>
                         <a href="<?= $buku->pdf ?>" class="btn btn-dl" target="_blank">Akses PDF</a>
                     <?php endif; ?>

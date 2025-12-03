@@ -46,7 +46,10 @@ $buku = $daftar_buku[$index];
         <input type="text" name="judul" value="<?= $buku->judul ?>" required>
 
         <label>Penulis</label>
-        <input type="text" name="penulis" value="<?= $buku->penulis ?>" required>
+        <input type="text" name="penulis" value="<?= $buku->penulis ?>" 
+            pattern="[a-zA-Z\s\.\']+" 
+            title="Hanya boleh huruf, spasi, titik, atau petik (Tanpa Angka)" 
+            required>
 
         <label>Status</label>
         <select name="status">

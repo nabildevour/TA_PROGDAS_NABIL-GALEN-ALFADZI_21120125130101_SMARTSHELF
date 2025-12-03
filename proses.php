@@ -14,9 +14,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
     $index = $_GET['index'];
     
     if (isset($daftar_buku[$index])) {
-        // Hapus file gambar/pdf fisik jika perlu (opsional)
-        // ... code hapus file ...
-
         // Hapus data array
         array_splice($daftar_buku, $index, 1);
         
@@ -35,6 +32,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Ambil data dari form
     $judul = htmlspecialchars($_POST['judul']);
     $penulis = htmlspecialchars($_POST['penulis']);
+    
+    // --- VALIDASI PENULIS (TIDAK BOLEH ANGKA) ---
+    if (preg_match('/[0-9]/', $penulis)) {
+        echo "<script>
+            alert('Gagal! Nama Penulis tidak boleh mengandung angka (0-9). Hanya huruf yang diperbolehkan.');
+            window.history.back(); 
+        </script>";
+        exit(); // Stop script PHP agar data tidak tersimpan
+    }
+    // ---------------------------------------------
+
     $status = $_POST['status'];
     $rating = $_POST['rating'];
     $catatan = htmlspecialchars($_POST['catatan']);

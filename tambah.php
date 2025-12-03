@@ -71,7 +71,7 @@ if (isset($_GET['fill_judul'])) {
 
     <!-- BAGIAN 1: FORM PENCARIAN GOOGLE (Method GET) -->
     <div class="api-box">
-        <label><b>Cari Buku (Google Books API - PHP Mode)</b></label>
+        <label><b>Cari Buku</b></label>
         <form action="" method="GET" style="display:flex; gap:10px; margin-bottom:0;">
             <input type="text" name="keyword" placeholder="Ketik judul buku..." value="<?= isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : '' ?>" required>
             <button type="submit" class="btn-cari">Cari</button>
@@ -117,7 +117,10 @@ if (isset($_GET['fill_judul'])) {
         <input type="text" name="judul" value="<?= htmlspecialchars($isi_judul) ?>" required>
 
         <label>Penulis</label>
-        <input type="text" name="penulis" value="<?= htmlspecialchars($isi_penulis) ?>" required>
+        <input type="text" name="penulis" value="<?= htmlspecialchars($isi_penulis) ?>" 
+        pattern="[a-zA-Z\s\.\']+" 
+        title="Hanya boleh huruf, spasi, titik, atau petik (Tanpa Angka)" 
+        required>
 
         <label>Status</label>
         <select name="status">
